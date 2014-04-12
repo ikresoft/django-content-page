@@ -23,6 +23,9 @@ class Page(Content):
     parent = models.ForeignKey('self', null=True, blank=True)
     template = models.CharField(max_length=100, null=True, blank=True)
 
+    def get_slug(self):
+        return slugify(self.title)
+
     def get_absolute_url(self):
         return reverse('page_detail', args=tuple(), kwargs={
             'slug': self.slug
