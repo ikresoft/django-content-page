@@ -16,23 +16,16 @@ class PageAdmin(ChildAdmin):
     base_model = Page
     fieldsets = (
         (None, {
-            'fields': ('title', 'template', 'body')
+            'fields': ('title', 'parent', 'template', 'body')
         }),
         (_('Page data'), {
             'fields': ('authors', 'non_staff_author',
-                       'status', 'origin', 'comment_status', )
+                       'status', 'origin', 'allow_comments', )
         }),)
-
-    if settings.INCLUDE_PRINT:
-        fieldsets = fieldsets + (_('Print Information'), {
-            'fields': ('print_pub_date', 'print_section', 'print_page'),
-            'classes': ('collapse',),
-        })
 
     fieldsets = fieldsets + ((_('Advanced Options'), {
-            'fields': ('slug', ('publish_date', 'publish_time'),
-                       'update_date', 'site', ),
+            'fields': ('slug', 'date_modified', 'site', ),
             'classes': ('collapse',),
         }),)
-    form = PageForm
 
+    form = PageForm

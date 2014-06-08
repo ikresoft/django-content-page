@@ -4,24 +4,19 @@
 """
 This module provides the Page model for reporting news, events, info etc.
 """
-import re
 
-from datetime import datetime
-
-from django.contrib.sites.models import Site
-from django.contrib.sites.managers import CurrentSiteManager
 from django.conf import settings as site_settings
 from django.core.exceptions import ImproperlyConfigured
 from django.core.urlresolvers import reverse
+from django.utils.text import slugify
 from django.db import models
 from django.utils.translation import ugettext as _
 from content import settings
 from content.models import Content
-from django.db.models.fields import FieldDoesNotExist
 
 class Page(Content):
-    parent = models.ForeignKey('self', null=True, blank=True)
-    template = models.CharField(max_length=100, null=True, blank=True)
+    parent = models.ForeignKey('self', null=True, blank=True, verbose_name=_(u'Parent'))
+    template = models.CharField(max_length=100, null=True, blank=True, verbose_name=_(u'Template'))
 
     def get_slug(self):
         return slugify(self.title)
