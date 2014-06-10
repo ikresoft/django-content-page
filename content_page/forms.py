@@ -10,7 +10,7 @@ from models import Page
 from content.forms import ContentForm
 
 class PageForm(ContentForm):
+
     class Meta:
     	model = Page
-    	exclude = ('categories',)
 

@@ -10,10 +10,9 @@ from content import settings
 from models import Page
 from forms import PageForm
 
-from content.admin import ChildAdmin
+from content.admin import ContentAdmin
 
-class PageAdmin(ChildAdmin):
-    base_model = Page
+class PageAdmin(ContentAdmin):
     fieldsets = (
         (None, {
             'fields': ('title', 'parent', 'template', 'body')
@@ -29,3 +28,5 @@ class PageAdmin(ChildAdmin):
         }),)
 
     form = PageForm
+
+admin.site.register(Page, PageAdmin)
