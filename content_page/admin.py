@@ -15,7 +15,11 @@ from content.admin import ContentAdmin
 class PageAdmin(ContentAdmin):
     fieldsets = (
         (None, {
-            'fields': ('title', 'parent', 'template', 'body')
+            'fields': ('title', 'parent', 'template',)
+        }),
+        (_('Content'), {
+            'fields': ('body',),
+            'classes': ('full-width',),
         }),
         (_('Page data'), {
             'fields': ('authors', 'non_staff_author',
