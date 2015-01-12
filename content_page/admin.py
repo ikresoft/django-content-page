@@ -9,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 from content import settings
 from models import Page
 from forms import PageForm
-
+import translation
 from content.admin import ContentAdmin
 
 class PageAdmin(ContentAdmin):
