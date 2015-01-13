@@ -14,6 +14,7 @@ from django.utils.translation import ugettext as _
 from content import settings
 from content.models import Content
 
+
 class Page(Content):
     parent = models.ForeignKey('self', null=True, blank=True, verbose_name=_(u'Parent'))
     template = models.CharField(max_length=100, null=True, blank=True, verbose_name=_(u'Template'))

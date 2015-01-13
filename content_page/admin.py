@@ -1,16 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-from django import forms
-from django.conf import settings as site_settings
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from content import settings
 from models import Page
 from forms import PageForm
 import translation
 from content.admin import ContentAdmin
+
 
 class PageAdmin(ContentAdmin):
     fieldsets = (
