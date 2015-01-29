@@ -8,7 +8,7 @@ This module provides the Page model for reporting news, events, info etc.
 from django.conf import settings as site_settings
 from django.core.exceptions import ImproperlyConfigured
 from django.core.urlresolvers import reverse
-from django.utils.text import slugify
+from slugify import slugify
 from django.db import models
 from django.utils.translation import ugettext as _
 from content import settings
