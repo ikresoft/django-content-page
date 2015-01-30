@@ -20,7 +20,7 @@ class Page(Content):
     template = models.CharField(max_length=100, null=True, blank=True, verbose_name=_(u'Template'))
 
     def get_slug(self):
-        return slugify(self.title)
+        return slugify(self.title, ok='', only_ascii=True)
 
     def get_absolute_url(self):
         return reverse('page_detail', args=tuple(), kwargs={
